@@ -1,9 +1,9 @@
 mod caesar_shift;
 mod helpers;
-mod monoalphapetic_cipher;
+mod monoalphabetic_cipher;
 
 use caesar_shift::caesar_shift_demo;
-use monoalphapetic_cipher::monoalphabetic_cipher_demo;
+use monoalphabetic_cipher::monoalphabetic_cipher_demo;
 use std::io::{self, Write};
 
 fn loopy(start: u32) {
