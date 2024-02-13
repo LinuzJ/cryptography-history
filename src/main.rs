@@ -1,6 +1,9 @@
 mod caesar_shift;
+mod helpers;
+mod monoalphapetic_cipher;
 
 use caesar_shift::caesar_shift_demo;
+use monoalphapetic_cipher::monoalphabetic_cipher_demo;
 use std::io::{self, Write};
 
 fn loopy(start: u32) {
@@ -11,6 +14,9 @@ fn loopy(start: u32) {
         match cipher {
             1 => {
                 caesar_shift_demo();
+            }
+            2 => {
+                monoalphabetic_cipher_demo();
             }
             _ => println!("Not implemented yet"),
         }
