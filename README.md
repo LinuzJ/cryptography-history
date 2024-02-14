@@ -1,3 +1,7 @@
+# WIP
+
+Plan is to create an interactive walkthrough of all the famous ciphers and algorithms
+
 # History of Cryptography
 
 ![Build Status](https://github.com/zaszi/rust-template/workflows/Rust/badge.svg)

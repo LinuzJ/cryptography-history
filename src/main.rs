@@ -10,7 +10,7 @@ fn loopy(start: u32) {
     if start > 4 {
         return;
     }
-    for cipher in start..5 {
+    for cipher in start..7 {
         match cipher {
             1 => {
                 caesar_shift_demo();
@@ -31,9 +31,11 @@ fn main() {
     println!("3. Vigenère Cipher - 16th century");
     println!("4. Enigma - 1920-1940s");
     println!("5. Lucifer (DES) - 1974");
+    println!("6. Diffie-Hellman Algorithm - 1976");
+    println!("7. RSA Algorithm - 1977");
     println!("\nPress choose the number you want to start with OR press any other key to go in chronological order!");
 
-    print!("Choose an option (0-4): ");
+    print!("Choose an option (1-7): ");
     io::stdout().flush().unwrap();
 
     let mut input = String::new();
@@ -41,13 +43,12 @@ fn main() {
         .read_line(&mut input)
         .expect("Failed to read line");
 
-    // Parse input to u32
     match input.trim().parse::<u32>() {
         Ok(choice) => match choice {
             0 => {
                 println!("Exiting the program. Goodbye!");
             }
-            1..=5 => {
+            1..=7 => {
                 loopy(choice);
             }
             _ => loopy(0),
