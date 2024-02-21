@@ -41,20 +41,24 @@ fn vigenere_cipher(plain_text: &str, key: &str) -> String {
         .chars()
         .collect();
     let key_map: HashMap<char, Vec<char>> = generate_vigenere_key_map();
-    let key_as_vec: Vec<char> = key.chars().collect();
+    let keyword_as_vec: Vec<char> = key.chars().collect();
     let mut cipher_text: Vec<&char> = Vec::new();
 
     for (i, c) in plain_text.chars().enumerate() {
         if c == '\n' {
             continue;
         }
-        let key_char: char = key_as_vec[i % (key_as_vec.len() - 1)];
+        // Get char to use from keyword
+        let key_char: char = keyword_as_vec[i % (keyword_as_vec.len() - 1)];
+
+        // Find which column to use
         let mut col = 0;
         while alphabet[col] != key_char && col < alphabet.len() {
             col += 1;
         }
 
-        if key_map.contains_key(&c) {
+        // Get cipher from key_map
+        if key_map.contains_key(&key_char) {
             let cipher_char = &key_map[&c][col];
             cipher_text.push(cipher_char);
         }
@@ -64,7 +68,7 @@ fn vigenere_cipher(plain_text: &str, key: &str) -> String {
 }
 
 pub fn vigenere_cipher_demo() {
-    println!("Welcome to Vigenére Cipher - TODo");
+    println!("\nWelcome to Vigenére Cipher - 16th Century");
 
     print!("Write the plaintext you will be using: ");
     io::stdout().flush().unwrap();
@@ -74,7 +78,7 @@ pub fn vigenere_cipher_demo() {
         .read_line(&mut plain_text)
         .expect("Failed to read line");
 
-    print!("Enter the keyword for the cipher:");
+    print!("Enter the keyword for the cipher: ");
     io::stdout().flush().unwrap();
 
     let mut key = String::new();
