@@ -1,10 +1,12 @@
 mod caesar_shift;
 mod helpers;
 mod monoalphabetic_cipher;
+mod vigenere_cipher;
 
 use caesar_shift::caesar_shift_demo;
 use monoalphabetic_cipher::monoalphabetic_cipher_demo;
 use std::io::{self, Write};
+use vigenere_cipher::vigenere_cipher_demo;
 
 fn loopy(start: u32) {
     if start > 4 {
@@ -17,6 +19,9 @@ fn loopy(start: u32) {
             }
             2 => {
                 monoalphabetic_cipher_demo();
+            }
+            3 => {
+                vigenere_cipher_demo();
             }
             _ => println!("Not implemented yet"),
         }

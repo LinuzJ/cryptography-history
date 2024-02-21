@@ -38,7 +38,7 @@ pub fn caesar_shift_demo() {
     // Parse input to u32
     match shift_input.trim().parse::<u8>() {
         Ok(shift) => {
-            let cipher_text = caesar_shift(&plain_text, shift);
+            let cipher_text = caesar_shift(&plain_text.to_uppercase(), shift);
             pretty_print_plain_to_cipher(plain_text, cipher_text);
         }
         Err(_) => {
