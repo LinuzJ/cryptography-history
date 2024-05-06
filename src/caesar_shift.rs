@@ -17,8 +17,9 @@ fn caesar_shift(plain_text: &str, shift: u8) -> String {
         .collect()
 }
 
-pub fn caesar_shift_demo() {
-    println!("Welcome to Caesar Cipher - 1st century BC");
+pub fn caesar_shift_demo() -> Result<(), std::num::ParseIntError> {
+    println!("\n=================================================================");
+    println!("Welcome to Caesar Cipher - 1st century BC\n");
 
     print!("Write the plaintext you will be using: ");
     io::stdout().flush().unwrap();
@@ -41,8 +42,11 @@ pub fn caesar_shift_demo() {
             let cipher_text = caesar_shift(&plain_text.to_uppercase(), shift);
             pretty_print_plain_to_cipher(plain_text, cipher_text);
         }
-        Err(_) => {
-            println!("idk");
+        Err(e) => {
+            return Err(e);
         }
     }
+    println!("Above you can see the Plan text and Cipher text representation using Caesar Cipher \n=================================================================");
+
+    Ok(())
 }
