@@ -3,7 +3,7 @@ use std::{
     io::{self, Write},
 };
 
-use crate::helpers::pretty_print_plain_to_cipher;
+use crate::pretty_print_plain_to_cipher;
 
 pub fn vigenere_cipher_demo() {
     println!("\nWelcome to Vigenére Cipher - 16th Century");

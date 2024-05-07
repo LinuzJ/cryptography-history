@@ -1,6 +1,6 @@
 use std::io::{self, Write};
 
-use crate::helpers::pretty_print_plain_to_cipher;
+use crate::pretty_print_plain_to_cipher;
 
 fn caesar_shift(plain_text: &str, shift: u8) -> String {
     plain_text

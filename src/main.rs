@@ -1,12 +1,8 @@
-mod caesar_shift;
-mod helpers;
-mod monoalphabetic_cipher;
-mod vigenere_cipher;
-
-use caesar_shift::caesar_shift_demo;
 use clap::{Parser, Subcommand};
-use monoalphabetic_cipher::monoalphabetic_cipher_demo;
-use vigenere_cipher::vigenere_cipher_demo;
+use cryptography_history::{
+    caesar_shift::caesar_shift_demo, enigma::demo::enigma_demo,
+    monoalphabetic_cipher::monoalphabetic_cipher_demo, vigenere_cipher::vigenere_cipher_demo,
+};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about=None)]
@@ -39,6 +35,9 @@ fn run_history(start: i32) {
             }
             3 => {
                 vigenere_cipher_demo();
+            }
+            4 => {
+                enigma_demo();
             }
             _ => println!("Not implemented yet"),
         }

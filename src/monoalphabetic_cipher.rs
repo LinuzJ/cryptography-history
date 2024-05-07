@@ -5,7 +5,7 @@ use std::{
 
 use rand::seq::SliceRandom;
 
-use crate::helpers::pretty_print_plain_to_cipher;
+use crate::pretty_print_plain_to_cipher;
 
 fn random_monoalphabetic_key() -> HashMap<char, char> {
     let alphabet: Vec<char> = "abcdefghijklmnopqrstuvwxyz"
