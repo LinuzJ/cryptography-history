@@ -63,11 +63,11 @@ fn vigenere_cipher(plain_text: &str, key: &str) -> String {
         }
     }
 
-    return String::from_iter(cipher_text);
+    String::from_iter(cipher_text)
 }
 
 fn shift_text(unshifted: Vec<char>, shift: u8) -> Vec<char> {
-    let start_of_alphabeth: u8 = 'A' as u8;
+    let start_of_alphabeth: u8 = b'A';
     let shifted = unshifted
         .iter()
         .map(|c| {
@@ -75,13 +75,13 @@ fn shift_text(unshifted: Vec<char>, shift: u8) -> Vec<char> {
                 let location_of_current = *c as u8 - start_of_alphabeth;
                 let new_location_in_alphabeth = (location_of_current + shift) % 26;
                 let new_ascii = start_of_alphabeth + new_location_in_alphabeth;
-                return new_ascii as char;
+                new_ascii as char
             } else {
                 *c
             }
         })
         .collect();
-    return shifted;
+    shifted
 }
 
 fn generate_vigenere_key_map() -> HashMap<char, Vec<char>> {
@@ -95,5 +95,5 @@ fn generate_vigenere_key_map() -> HashMap<char, Vec<char>> {
         key_map.insert(*c, shift_text(alphabet.clone(), i as u8));
     }
 
-    return key_map;
+    key_map
 }

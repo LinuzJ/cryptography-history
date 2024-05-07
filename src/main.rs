@@ -67,7 +67,7 @@ fn main() {
             run_history(1);
         }
         Commands::StartOn { chapter } => {
-            if chapter < 0 || chapter > 7 {
+            if !(0..=7).contains(&chapter) {
                 println!("Provide a valid chapter, please")
             }
 

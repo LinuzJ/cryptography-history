@@ -20,7 +20,7 @@ fn random_monoalphabetic_key() -> HashMap<char, char> {
     for c in 0..alphabet.len() {
         key.insert(alphabet[c], shuffle_alphabet[c]);
     }
-    return key;
+    key
 }
 
 fn monoalphabetic_cipher(plain_text: &str, key: HashMap<char, char>) -> String {
@@ -28,7 +28,7 @@ fn monoalphabetic_cipher(plain_text: &str, key: HashMap<char, char>) -> String {
         .chars()
         .map(|c| {
             if c.is_ascii_alphabetic() {
-                return key[&c];
+                key[&c]
             } else {
                 c
             }

@@ -9,7 +9,7 @@ fn caesar_shift(plain_text: &str, shift: u8) -> String {
             if c.is_ascii_alphabetic() {
                 let offset = shift % 26;
                 let cipher_char: u8 = c as u8 + offset;
-                return cipher_char as char;
+                cipher_char as char
             } else {
                 c
             }

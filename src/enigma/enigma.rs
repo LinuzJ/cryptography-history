@@ -10,7 +10,7 @@ pub struct Enigma {
 }
 
 impl Enigma {
-    pub fn new(rotors: &str, keys: &str, rings: &str, reflector: char, plugboard: &str) -> Enigma {
+    pub fn new(rotors: &str, keys: &str, rings: &str, _reflector: char, _plugboard: &str) -> Enigma {
         let rotors: Vec<usize> = rotors
             .chars()
             .filter_map(|c| c.to_digit(10))
